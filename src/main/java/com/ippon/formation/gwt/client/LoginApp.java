@@ -3,9 +3,11 @@ package com.ippon.formation.gwt.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.HandlerManager;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.ippon.formation.gwt.client.event.ProcessLoginEvent;
+import com.ippon.formation.gwt.client.presenter.LoginPresenter;
 import com.ippon.formation.gwt.client.ui.resources.Resources;
+import com.ippon.formation.gwt.client.view.LoginWidget;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -24,6 +26,10 @@ public class LoginApp implements EntryPoint {
 	public void onModuleLoad() {
 		Resources.INSTANCE.myCss().ensureInjected();
 
-		RootPanel.get().add(new Label("Welcome to uibinder TP !"));
+		LoginPresenter presenter = new LoginPresenter(new LoginWidget(eventBus), loginService);
+
+		eventBus.addHandler(ProcessLoginEvent.TYPE, presenter);
+
+		presenter.go(RootPanel.get());
 	}
 }

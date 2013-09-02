@@ -1,0 +1,21 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+    xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+  <ui:with type="com.ippon.formation.gwt.client.ui.resources.Resources" field="res" />
+
+  <g:HTMLPanel>
+  	<div style="width:50%;margin-left:25%;text-align:left;">
+  		<g:Image resource="{res.ipponLogo}" styleName="{res.myCss.centered}" />
+	  	<g:Label styleName="{res.myCss.centered}">Welcome !</g:Label>
+	  	<br/>
+		<div>
+		    <g:Label ui:field="loginLabel" text="Login"/><g:TextBox ui:field="login"/>
+		    <g:Label ui:field="passwordLabel" text="Password"/><g:PasswordTextBox ui:field="password"/>
+	    </div>
+	    <div align="right">
+	    	<g:Button ui:field="processLogin" text="Process"/>
+	    </div>
+    </div>
+  </g:HTMLPanel>
+
+</ui:UiBinder>
